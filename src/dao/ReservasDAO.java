@@ -37,4 +37,23 @@ public class ReservasDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public Integer traerUltimoRegistro() {
+		Integer resultado = null;
+		try {
+			String sql = "SELECT id FROM reservas "
+					+ "ORDER BY id DESC LIMIT 1"; 
+			try(PreparedStatement pstm = connection.prepareStatement(sql)){	
+				pstm.execute();		
+				try(ResultSet rst = pstm.getResultSet()){
+					while(rst.next()) {
+						resultado = rst.getInt("ID");
+					}
+				}
+			}
+			return resultado;
+		}catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

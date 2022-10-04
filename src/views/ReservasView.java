@@ -45,6 +45,7 @@ public class ReservasView extends JFrame {
 	private JLabel lblValorSimbolo; 
 	private JLabel labelAtras;
 	private ReservaController reservaController;
+	
 
 	/**
 	 * Launch the application.
@@ -218,9 +219,12 @@ public class ReservasView extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuPrincipal principal = new MenuPrincipal();
-				principal.setVisible(true);
-				dispose();
+				int opcionSalir = JOptionPane.showConfirmDialog(null,"Desea volver al menú del programa?");
+				if (opcionSalir ==  JOptionPane.YES_OPTION) {
+					MenuPrincipal menuPrincipal = new MenuPrincipal();
+					menuPrincipal.setVisible(true);
+					dispose();
+				}
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

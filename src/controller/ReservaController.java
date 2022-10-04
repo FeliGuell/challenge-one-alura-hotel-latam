@@ -18,6 +18,10 @@ public class ReservaController {
 		this.reservaDAO.guardar(reservas);
 	}
 	
+	public Integer traerUltimoRegistro() {
+		return reservaDAO.traerUltimoRegistro();
+	}
+	
 
 	
 }

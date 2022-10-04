@@ -108,7 +108,7 @@ public class MenuPrincipal extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int opcionSalir = JOptionPane.showConfirmDialog(header, "Desea salir del programa?");
+				int opcionSalir = JOptionPane.showConfirmDialog(null, "Desea salir del programa?");
 				if (opcionSalir ==  JOptionPane.YES_OPTION) {
 					System.exit(0);
 				}
