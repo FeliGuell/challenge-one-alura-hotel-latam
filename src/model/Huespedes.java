@@ -14,6 +14,20 @@ public class Huespedes {
 	
 	
 	
+	
+	public Huespedes(Integer id, String nombre, String apellido, Date fecha_de_nacimiento, String nacionalidad,
+			String telefono, Integer id_reserva) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fecha_de_nacimiento = fecha_de_nacimiento;
+		this.nacionalidad = nacionalidad;
+		this.telefono = telefono;
+		this.id_reserva = id_reserva;
+	}
+
+
 	public Huespedes(String nombre, String apellido, Date fecha_de_nacimiento, String nacionalidad, String telefono,
 			Integer id_reserva) {
 		super();
@@ -46,6 +60,10 @@ public class Huespedes {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getId() {
+		return id;
 	}
 	
 	

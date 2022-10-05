@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.util.List;
 
 import dao.HuespedesDAO;
 import factory.ConnectionFactory;
@@ -16,5 +17,13 @@ public class HuespedesController {
 	
 	public void guardar(Huespedes huespedes) {
 		this.huespedesDAO.guardar(huespedes);
+	}
+	
+	public List<Huespedes> listar(){
+		return this.huespedesDAO.listar();
+	}
+	
+	public Huespedes traeHuespedPorIdReserva(Integer idReserva) {
+		return huespedesDAO.traeHuespedPorIdReserva(idReserva);
 	}
 }

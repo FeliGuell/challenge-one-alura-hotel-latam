@@ -269,7 +269,8 @@ public class RegistroHuesped extends JFrame {
 					guardarHuesped();
 					Exito exito = new Exito();
 					exito.setVisible(true);
-					System.exit(0);
+					setVisible(false);
+					
 			}else {
 				JOptionPane.showMessageDialog(null, "Debes llenar todos los campos.");
 			}

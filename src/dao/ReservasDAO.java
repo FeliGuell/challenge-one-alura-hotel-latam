@@ -5,7 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import model.Huespedes;
 import model.Reservas;
 
 public class ReservasDAO {
@@ -56,4 +59,60 @@ public class ReservasDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public List<Reservas> listar(){
+		List<Reservas> resultado = new ArrayList();
+		
+		try {
+			String sql = "SELECT id, fecha_entrada, fecha_salida, valor, forma_pago FROM reservas";
+			
+			try(PreparedStatement ps = connection.prepareStatement(sql)){
+				ps.execute();
+				
+				try(ResultSet resultSet = ps.getResultSet()){
+					while(resultSet.next()) {
+						Reservas reserva = new Reservas(
+								resultSet.getInt("id"),
+								resultSet.getDate("fecha_entrada"),
+								resultSet.getDate("fecha_salida"),
+								resultSet.getString("valor"),
+								resultSet.getString("forma_pago"));
+						
+						resultado.add(reserva);
+					}
+				}
+			}
+			return resultado;
+		}catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+	}
+	
+	public Reservas traeReservaPorId(Integer id) {
+		Reservas reserva = null;
+		try {
+			String sql = "SELECT id, fecha_entrada, fecha_salida, valor, forma_pago FROM reservas WHERE ID = ?";
+			
+			try(PreparedStatement ps = connection.prepareStatement(sql)){
+				ps.setInt(1, id);
+				ps.execute();
+				
+				try(ResultSet resultSet = ps.getResultSet()){
+					while(resultSet.next()) {
+						reserva = new Reservas(
+								resultSet.getInt("id"),
+								resultSet.getDate("fecha_entrada"),
+								resultSet.getDate("fecha_salida"),
+								resultSet.getString("valor"),
+								resultSet.getString("forma_pago"));
+
+					}
+				}
+			}
+			return reserva;
+		}catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+	}
+	
 }

@@ -1,9 +1,11 @@
 package controller;
 
 import java.sql.Connection;
+import java.util.List;
 
 import dao.ReservasDAO;
 import factory.ConnectionFactory;
+import model.Huespedes;
 import model.Reservas;
 
 public class ReservaController {
@@ -21,6 +23,15 @@ public class ReservaController {
 	public Integer traerUltimoRegistro() {
 		return reservaDAO.traerUltimoRegistro();
 	}
+	
+	public List<Reservas> listar(){
+		return reservaDAO.listar();
+	}
+	
+	public Reservas traeReservaPorId(Integer id) {
+		return reservaDAO.traeReservaPorId(id);
+	}
+	
 	
 
 	
