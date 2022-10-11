@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -93,4 +94,75 @@ public class HuespedesDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public int modificar(Integer id, String nombre, String apellido, Date fecha_de_nacimiento, String nacionalidad,String telefono, Integer id_reserva) {
+		try {
+			String sql = "UPDATE huespedes SET " 
+					+ "nombre = ?,"
+					+ "apellido = ?," 
+					+ "fecha_de_nacimiento = ?,"
+					+ "nacionalidad = ?,"
+					+ "telefono = ?,"
+					+ "id_reserva = ?" 
+					+ " WHERE id = ? ";
+
+			try (PreparedStatement ps = connection.prepareStatement(sql)) {				
+				ps.setString(1, nombre);				
+				ps.setString(2, apellido);
+				ps.setDate(3, fecha_de_nacimiento);
+				ps.setString(4, nacionalidad);
+				ps.setString(5, telefono);
+				ps.setInt(6, id_reserva);
+				ps.setInt(7, id);
+				ps.executeUpdate();
+					
+				System.out.println(String.format("Fue modificado el producto %s", ps));
+
+				int updateCount = ps.getUpdateCount();
+				
+				return updateCount;
+			}
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	
+	  public int eliminar(Integer id){     
+	        try {     
+	        	String sql = "DELETE FROM huespedes WHERE id = ?";
+  
+	            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+	                ps.setInt(1, id);
+	                ps.execute();
+
+	                int updateCount = ps.getUpdateCount();
+
+	                return updateCount;
+	            }
+	        }catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
+	  
+	  public int eliminarPorIdReserva(Integer id){     
+	        try {     
+	        	String sql = "DELETE FROM huespedes WHERE id_reserva = ?";
+
+	            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+	                ps.setInt(1, id);
+	                ps.execute();
+
+	                int updateCount = ps.getUpdateCount();
+
+	                return updateCount;
+	            }
+	        }catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
+	
+	
 }

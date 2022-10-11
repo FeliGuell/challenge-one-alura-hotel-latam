@@ -145,4 +145,23 @@ public class ReservasDAO {
 
 	}
 	
+
+	  public int eliminar(Integer id){     
+	        try {     
+	        	String sql = "DELETE FROM reservas WHERE id = ?";
+
+	            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+	                ps.setInt(1, id);
+	                ps.execute();
+
+	                int updateCount = ps.getUpdateCount();
+
+	                return updateCount;
+	            }
+	        }catch (SQLException e) {
+	            throw new RuntimeException(e);
+	        }
+	    }
+	
+	
 }
