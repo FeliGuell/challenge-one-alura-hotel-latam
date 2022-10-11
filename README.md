@@ -18,7 +18,7 @@ Es un sistema para un Hotel, donde se pueden registrar los huéspedes que van in
 - `Funcionalidad 2`:Permite crear, editar y eliminar una reserva para los clientes;
 - `Funcionalidad 3`:Busca en la base de datos todas las informaciones tanto de los clientes como de las reservas;
 - `Funcionalidad 4`:Registra, edita y eliminar datos de los huéspedes;
-- `Funcionalidad 5`:Calcula el valor de la reserva en base a la cantidades de días de la reserva y a una tasa diaria $200(es modificable) y en la moneda local de tu país, por ejemplo si tenemos una reserva de 3 dias y el valor de nuestra diaria son 20$ debemos multiplicar esos 3 dias por el valor de la diaria que serian 60$;
+- `Funcionalidad 5`:Calcula el valor de la reserva en base a la cantidades de días de la reserva y a una tasa diaria y en la moneda local de tu país, por ejemplo si tenemos una reserva de 3 dias y el valor de nuestra diaria son 20$ debemos multiplicar esos 3 dias por el valor de la diaria que serian 60$;
 
 ---
 ## 🖥️ Tecnologías Utilizadas:
