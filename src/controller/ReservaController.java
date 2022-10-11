@@ -1,6 +1,7 @@
 package controller;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.util.List;
 
 import dao.ReservasDAO;
@@ -30,6 +31,10 @@ public class ReservaController {
 	
 	public Reservas traeReservaPorId(Integer id) {
 		return reservaDAO.traeReservaPorId(id);
+	}
+	
+	public int modificar(Integer id, Date fecha_entrada, Date fecha_salida,String valor,String forma_pago) {
+		return reservaDAO.modificar(id, fecha_entrada, fecha_salida, valor, forma_pago);
 	}
 	
 	

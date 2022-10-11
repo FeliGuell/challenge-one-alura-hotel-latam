@@ -334,7 +334,7 @@ public class ReservasView extends JFrame {
 	public void guardarReserva() {
 		try {
 			String fechaEntrada = ((JTextField)txtFechaE.getDateEditor().getUiComponent()).getText();
-			String fechaSalida = ((JTextField)txtFechaE.getDateEditor().getUiComponent()).getText();
+			String fechaSalida = ((JTextField)txtFechaS.getDateEditor().getUiComponent()).getText();
 			Reservas reserva = new Reservas(java.sql.Date.valueOf(fechaEntrada), 
 					java.sql.Date.valueOf(fechaSalida),
 					txtValor.getText(),

@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Huespedes;
 import model.Reservas;
 
 public class ReservasDAO {
@@ -113,6 +113,36 @@ public class ReservasDAO {
 		}catch (SQLException e) {
             throw new RuntimeException(e);
         }
+	}
+	
+	public int modificar(Integer id, Date fecha_entrada, Date fecha_salida,String valor,String forma_pago) {
+		try {
+			String sql = "UPDATE reservas SET " 
+					+ "fecha_entrada = ?,"
+					+ "fecha_salida = ?," 
+					+ "valor = ?,"
+					+ "forma_pago = ?" 
+					+ " WHERE id = ? ";
+
+			try (PreparedStatement ps = connection.prepareStatement(sql)) {				
+				ps.setDate(1, fecha_entrada);				
+				ps.setDate(2, fecha_salida);
+				ps.setString(3, valor);
+				ps.setString(4, forma_pago);
+				ps.setInt(5, id);
+				ps.executeUpdate();
+					
+				System.out.println(String.format("Fue modificado el producto %s", ps));
+
+				int updateCount = ps.getUpdateCount();
+				
+				return updateCount;
+			}
+
+		} catch(SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 	
 }
