@@ -28,6 +28,11 @@ import controller.HuespedesController;
 import controller.ReservaController;
 import model.Huespedes;
 
+
+/**
+ * Clase que representa el formulario para registrar un nuevo huésped.
+ * Extiende JFrame para crear una ventana con campos para ingresar datos del huésped.
+ */
 @SuppressWarnings("serial")
 public class RegistroHuesped extends JFrame {
 
@@ -44,9 +49,10 @@ public class RegistroHuesped extends JFrame {
 	private HuespedesController huespedesController;
 	private ReservaController reservaController;
 
-	/**
-	 * Launch the application.
-	 */
+    	/**
+     	* Método principal para iniciar la aplicación.
+     	* Crea una instancia de RegistroHuesped y la hace visible.
+     	*/
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -60,9 +66,10 @@ public class RegistroHuesped extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+   	 /**
+     	* Constructor de la clase RegistroHuesped.
+     	* Inicializa los componentes de la interfaz y configura la ventana.
+     	*/
 	public RegistroHuesped() {
 		
 		this.huespedesController = new HuespedesController();
@@ -78,7 +85,8 @@ public class RegistroHuesped extends JFrame {
 		setLocationRelativeTo(null);
 		setUndecorated(true);
 		contentPane.setLayout(null);
-		
+
+		// Panel de encabezado
 		JPanel header = new JPanel();
 		header.setBounds(0, 0, 910, 36);
 		header.addMouseMotionListener(new MouseMotionAdapter() {
@@ -99,7 +107,8 @@ public class RegistroHuesped extends JFrame {
 		header.setOpaque(false);
 		header.setBounds(0, 0, 910, 36);
 		contentPane.add(header);
-		
+
+		// Botón de retroceso
 		JPanel btnAtras = new JPanel();
 		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
@@ -131,7 +140,7 @@ public class RegistroHuesped extends JFrame {
 		labelAtras.setBounds(0, 0, 53, 36);
 		btnAtras.add(labelAtras);
 		
-		
+		// Campos de texto y etiquetas
 		txtNombre = new JTextField();
 		txtNombre.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtNombre.setBounds(560, 135, 285, 33);
