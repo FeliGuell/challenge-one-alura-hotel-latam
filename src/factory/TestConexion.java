@@ -3,10 +3,18 @@ package factory;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * La clase TestConexion se utiliza para probar la conexión a la base de datos.
+ * Verifica que se pueda establecer y cerrar una conexión utilizando ConnectionFactory.
+ */
 public class TestConexion {
 	
-    	// Método principal que se ejecuta cuando el programa comienza.
-    	// El método 'main' lanza una excepción de tipo SQLException.
+    	/**
+     	* Método principal que ejecuta la prueba de conexión a la base de datos.
+     	*
+     	* @param args Argumentos de línea de comandos (no se utilizan).
+     	* @throws SQLException Si ocurre un error durante la conexión o cierre de la misma.
+     	*/
 	public static void main(String[] args) throws SQLException {
 		
 		// Se crea una instancia de ConnectionFactory, la cual está configurada
