@@ -11,16 +11,28 @@ import java.util.List;
 
 import model.Huespedes;
 
+/**
+ * La clase HuespedesDAO proporciona métodos para interactuar con la tabla 'huespedes' 
+ * en la base de datos, permitiendo realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
+ */
 public class HuespedesDAO {
 	// Instancia de Connection que se usará para interactuar con la base de datos.
 	private Connection connection;
 
-	// Constructor que recibe una conexión a la base de datos y la asigna a la variable de instancia.
+    	/**
+     	* Constructor de la clase HuespedesDAO.
+     	*
+     	* @param connection La conexión a la base de datos.
+     	*/
 	public HuespedesDAO(Connection connection) {
 		this.connection = connection;
 	}
 
-	// Método para guardar un nuevo huésped en la base de datos.
+   	 /**
+    	 * Guarda un nuevo registro de huésped en la base de datos.
+    	 *
+    	 * @param huesped El objeto Huespedes que contiene la información del huésped a guardar.
+    	 */
 	public void guardar(Huespedes huesped) {
 		try {
 			// SQL para insertar un nuevo registro en la tabla 'huespedes'.
@@ -53,7 +65,11 @@ public class HuespedesDAO {
 		}
 	}
 
-	 // Método para listar todos los registros de huéspedes en la base de datos.
+   	 /**
+    	 * Obtiene una lista de todos los huéspedes almacenados en la base de datos.
+    	 *
+     	* @return Una lista de objetos Huespedes.
+     	*/
 	public List<Huespedes> listar() {
 		List<Huespedes> resultado = new ArrayList();
 
@@ -87,7 +103,13 @@ public class HuespedesDAO {
 		}
 	}
 
-	// Método para obtener un huésped según su id de reserva.
+	
+   	/**
+    	* Busca y devuelve un huésped según su ID de reserva.
+     	*
+     	* @param idReserva El ID de la reserva asociada al huésped.
+     	* @return Un objeto Huespedes si se encuentra un registro, o null si no.
+     	*/
 	public Huespedes traeHuespedPorIdReserva(Integer idReserva) {
 		Huespedes huesped = null;
 
@@ -122,7 +144,18 @@ public class HuespedesDAO {
 		}
 	}
 
-	// Método para modificar los datos de un huésped en la base de datos.
+   	 /**
+     	* Modifica la información de un huésped existente en la base de datos.
+     	*
+     	* @param id El ID del huésped a modificar.
+     	* @param nombre El nuevo nombre del huésped.
+     	* @param apellido El nuevo apellido del huésped.
+     	* @param fecha_de_nacimiento La nueva fecha de nacimiento del huésped.
+     	* @param nacionalidad La nueva nacionalidad del huésped.
+     	* @param telefono El nuevo teléfono del huésped.
+     	* @param id_reserva El nuevo ID de reserva del huésped.
+     	* @return El número de registros modificados.
+     	*/
 	public int modificar(Integer id, String nombre, String apellido, Date fecha_de_nacimiento, String nacionalidad,String telefono, Integer id_reserva) {
 		try {
 			 // SQL para actualizar los datos de un huésped existente.
@@ -165,8 +198,12 @@ public class HuespedesDAO {
 
 	}
 	
-
-	  // Método para eliminar un huésped de la base de datos según su id.
+   	/**
+   	* Elimina un registro de huésped de la base de datos por su ID.
+   	*
+    	* @param id El ID del huésped a eliminar.
+    	* @return El número de registros eliminados.
+     	*/
 	  public int eliminar(Integer id){     
 	        try {     
 			// SQL para eliminar un registro de la tabla 'huespedes' basado en el 'id'.
@@ -192,7 +229,12 @@ public class HuespedesDAO {
 	        }
 	    }
 
-	  // Método para eliminar un huésped de la base de datos según su id de reserva.
+    	/**
+     	* Elimina un registro de huésped de la base de datos por el ID de la reserva.
+    	*
+     	* @param id El ID de la reserva asociada al huésped.
+     	* @return El número de registros eliminados.
+     	*/
 	  public int eliminarPorIdReserva(Integer id){     
 	        try {   
 			// SQL para eliminar registros de la tabla 'huespedes' basado en el 'id_reserva'.
