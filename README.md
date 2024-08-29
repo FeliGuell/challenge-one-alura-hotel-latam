@@ -24,6 +24,7 @@ Es un sistema para un Hotel, donde se pueden registrar los huéspedes que van in
 ## 🖥️ Tecnologías Utilizadas:
 
 - Java
+- Swing
 - Eclipse
 - Biblioteca JCalendar
 - MySql
@@ -37,6 +38,11 @@ Es un sistema para un Hotel, donde se pueden registrar los huéspedes que van in
 🎨 La interfaz contiene dos métodos importantes:
 - setResizable(false): determina el tamaño de la ventana, y a través del parámetro <strong>false</strong>, la pantalla no se puede maximizar;
 - setLocationRelativeTo(null): determina la ubicación de la ventana, y a través del parámetro <strong>null</strong> la mantiene centrada en la pantalla.
+
+---
+
+## DEMO(video)
+- https://www.linkedin.com/posts/feliguellweb_aqu%C3%AD-les-traigo-el-%C3%BAltimo-challenge-one-activity-6986004350410076160-erFD?utm_source=share&utm_medium=member_desktop
 
 ---
 ## ⬇️ Download
