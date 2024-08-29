@@ -46,6 +46,11 @@ import controller.ReservaController;
 import model.Huespedes;
 import model.Reservas;
 
+/**
+ * La clase `Busqueda` es una ventana de la aplicación que permite realizar búsquedas y gestionar datos de reservas y huéspedes.
+ * Hereda de `JFrame` para crear una interfaz gráfica en Swing.
+ * Proporciona funcionalidades para visualizar, buscar, editar y eliminar reservas y huéspedes.
+ */
 @SuppressWarnings("serial")
 public class Busqueda extends JFrame {
 
@@ -60,10 +65,10 @@ public class Busqueda extends JFrame {
 	private HuespedesController huespedesController;
 	private ReservaController reservaController;
 	int xMouse, yMouse;
-
-	/**
-	 * Launch the application.
-	 */
+	
+   	/**
+     	* Inicia la aplicación y muestra la ventana `Busqueda`.
+     	*/
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -77,9 +82,9 @@ public class Busqueda extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+   	/**
+     	* Crea la ventana principal de búsqueda.
+     	*/
 	public Busqueda() {
 		this.huespedesController = new HuespedesController();
 		this.reservaController = new ReservaController();
