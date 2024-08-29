@@ -7,11 +7,18 @@ import javax.sql.DataSource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+/**
+ * La clase ConnectionFactory se encarga de gestionar las conexiones a la base de datos.
+ * Proporciona una única instancia de DataSource configurada para obtener conexiones a la base de datos MySQL.
+ */
 public class ConnectionFactory {
 	// Instancia del DataSource que se usará para obtener conexiones a la base de datos.
 	public DataSource dataSource;
 
-	// Constructor de la clase ConnectionFactory.
+	/**
+     	* Constructor de la clase ConnectionFactory.
+    	* Configura un ComboPooledDataSource para manejar la conexión a la base de datos MySQL.
+     	*/
 	public ConnectionFactory() {
 		// Se crea una nueva instancia de ComboPooledDataSource, una implementación de DataSource que soporta un pool de conexiones.
 		ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
@@ -26,7 +33,12 @@ public class ConnectionFactory {
 		dataSource = comboPooledDataSource;
 	}
 
-	// Método para recuperar una conexión a la base de datos desde el pool de conexiones.
+	/**
+     	* Recupera una conexión activa a la base de datos.
+     	*
+     	* @return Un objeto Connection que representa la conexión a la base de datos.
+     	* @throws RuntimeException Si ocurre un error al intentar conectar a la base de datos.
+     	*/
 	public Connection recuperarConexion() {
 		try {
 			 // Intenta obtener una conexión desde el DataSource y la retorna.
